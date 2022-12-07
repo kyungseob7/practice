@@ -7,6 +7,7 @@
   <title>웹카페</title>
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="./styles/style.css" />
+  <script src="./js/main.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -25,7 +26,7 @@
     <nav class="navigation">
       <h2 class="a11y-hidden">메인 메뉴</h2>
       <ul class="menu">
-        <li class="menu-item">
+        <li class="menu-item is-active">
           <button type="button" class="menu-button">HTML에 대해</button>
           <ul class="sub-menu menu-html">
             <li>
@@ -70,7 +71,7 @@
             </li>
           </ul>
         </li>
-        <li class="menu-item  is-active">
+        <li class="menu-item">
           <button type="button" class="menu-button">웹 접근성</button>
           <ul class="sub-menu menu-accessibility">
             <li>
@@ -127,7 +128,10 @@
       </ul>
     </nav>
   </header>
-  <div class="visual">비주얼</div>
+  <div class="visual">
+    <div class="visual-text">Web Standards &amp; Accessibility
+    </div>
+  </div>
   <main class="main">
     <div class="group group1">그룹1</div>
     <div class="group group2">그룹2</div>
