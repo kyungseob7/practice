@@ -2,9 +2,9 @@
 @import url(./normalize.css);
 @import url(./reset.css);
 
-
 /* 숨김 콘텐츠 */
-.a11y-hidden {
+.a11y-hidden,
+legend {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -31,13 +31,15 @@ a {
 
 /* 본문 스타일 */
 body {
-  /* em, rem 단위를 사용해보기 */
+  color: #212121;
   font-size: 1.4rem;
   font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    background:    url(./images/bg_flower.png) no-repeat 50% 0%, 0 0, #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+  background: url("./images/bg_flower.png") no-repeat 50% 0,
+    #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+      repeat 0 0;
 }
 
 /* 레이아웃 */
@@ -117,7 +119,6 @@ body {
   position: relative;
 }
 
-
 .menu > li:nth-child(-n + 3) {
   position: relative;
 }
@@ -127,6 +128,7 @@ body {
   border-left: 2px solid #fff;
 }
 
+/* 구체성 -> 10점 */
 .menu-button {
   border: 0;
   background: transparent;
@@ -138,6 +140,7 @@ body {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
+/* 구체성 -> 20점 */
 .is-active .menu-button {
   color: #ff0;
 }
@@ -152,16 +155,7 @@ body {
   position: absolute;
   top: 47px;
   display: none;
-}
-
-.sub-menu a:hover::before,
-.sub-menu a:focus::before {
-  content: '\e801';
-}
-
-.sub-menu a:hover,
-.sub-menu a:focus {
-  color: red;
+  padding: 4px 0;
 }
 
 .menu-html,
@@ -176,31 +170,35 @@ body {
   right: 0;
 }
 
+.is-active .sub-menu {
+  display: block;
+  white-space: nowrap;
+}
+
 .sub-menu li {
   display: inline-block;
 }
 
 .sub-menu a::before {
-  content: '\e805';
+  content: "\e805";
   font-family: "fontello";
-  font-style: normal;
   font-weight: normal;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  margin-right: 0.2em;
   text-align: center;
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
-  margin-left: .2em;
+  margin-left: 0.2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.is-active .sub-menu {
-  display: block;
-  white-space: nowrap;
+.sub-menu a:hover::before,
+.sub-menu a:focus::before {
+  content: "\e801";
 }
 
 .sub-menu a {
@@ -208,20 +206,26 @@ body {
   padding: 6px 0;
 }
 
-/* 비주얼 */
+.sub-menu a:hover,
+.sub-menu a:focus {
+  color: #f00;
+}
 
+/* 비주얼 */
 @keyframes moveEffect {
   0% {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0);
+    color: hsla(0, 0%, 0%, 0);
     transform: translate(0, 0);
   }
-  100%{
+
+  100% {
     font-size: 24px;
-    color: rgba(0, 0, 0, 1);
+    color: hsla(0, 0%, 0%, 1);
     transform: translate(400px, 75px);
   }
 }
+
 @keyframes fadeEffect {
   0% {
     opacity: 1;
@@ -229,7 +233,6 @@ body {
   100% {
     opacity: 0;
   }
-
 }
 
 .visual {
@@ -249,35 +252,30 @@ body {
 }
 
 .visual::before {
-  background-image: url(./images/ani_flower_01.png), url(./images/ani_flower_02.png);
-  background-repeat: no-repeat;
-  background-position: 0 -10px, 600px, 0;
+  background: url("./images/ani_flower_01.png") no-repeat 0 -10px,
+    url("./images/ani_flower_02.png") no-repeat 600px 0;
 }
 
 .visual::after {
-  background-image: url(./images/ani_flower_03.png), url(./images/ani_flower_04.png);
-  background-repeat: no-repeat;
-  background-position: 300px 0, 800px 0;
+  background: url("./images/ani_flower_03.png") no-repeat 300px 0,
+    url("./images/ani_flower_04.png") no-repeat 800px 0;
   animation-delay: 1000ms;
 }
 
-
 .visual-text {
-  display: inline-block;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  animation-name: moveEffect;
-  animation-duration: 2000ms;
-  animation-fill-mode: forwards;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  animation: moveEffect 400ms ease-in-out forwards;
+  position: relative;
   z-index: 1;
 }
 
-
 /* 메인 */
 .main {
-  background: lightgreen;
-  height: 50vh;
   display: flow-root;
-  padding: 0 15px;
+  background: #fff;
+  min-height: 450px;
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 .group {
@@ -286,16 +284,129 @@ body {
 }
 
 .group1 {
-  background-color: violet;
   width: 250px;
 }
+
 .group2 {
   background-color: salmon;
   width: 380px;
 }
+
 .group3 {
   background-color: gold;
   width: 190px;
+}
+
+/* 로그인 */
+.login {
+  box-shadow: 5px 5px 0 0 #ccc;
+  background: orange radial-gradient(circle at right top, orange, orangered);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form {
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 4em;
+}
+
+.login-form input {
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  color: #fff;
+  border: 0;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.sign {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 4px 10px;
+}
+.sign li {
+  display: inline-block;
+}
+
+.sign li:first-child {
+  margin-right: 16px;
+}
+
+.sign a {
+  display: inline-block;
+  padding: 6px 0;
+  letter-spacing: -1px;
+}
+
+.sign a::before {
+  color: orangered;
+  content: '\e804';
+  font-family: fontello;
+  padding-right: 10px;
+
+}
+
+/* 유효성 검사 배너 */
+.validation-list {
+  background-color: yellow;
+  margin-top: 25px;
+}
+
+.validation-list li {
+  margin-top: 10px;
+}
+
+.validation-list a {
+  background: url("./images/validation_icon.png") no-repeat 25px 50%,
+    #ccc linear-gradient(to bottom, #ccc, #eee);
+  padding: 0 15px 0 55px;
+  border-radius: 30px;
+  line-height: 30px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  display: block;
+}
+
+.validation-list a:hover,
+.validation-list a:focus {
+  color: #f00;
 }
 
 /* 슬로건 */
