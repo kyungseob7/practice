@@ -833,43 +833,40 @@ body {
     linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
 }
 .footer-inner {
-  background: #ccc
-  linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
   display: flex;
   flex-flow: row nowrap;
-  padding-top: 15px;
+  gap: 20px;
+  padding: 20px 0;
 }
 
-
 .footer-logo {
-  padding: 30px 30px 50px 30px;
+  width: 150px;
+  padding: 20px 0 0 35px;
 }
 
 .footer-inner-wrapper {
   flex: 1 1 auto;
-  margin: 0 20px;
 }
 
 .guide-list {
-  background-color: #666;
   display: flex;
-  border-radius: 30px;
-  justify-content: space-around;
-  padding: 5px 0;
-}
-
-.guide-list li {
+  flex-flow: row nowrap;
+  background-color: #7b8385;
   color: #fff;
-  margin: 5px 10px;
+  padding: 4px 45px;
+  justify-content: space-between;
+  text-transform: uppercase;
+  border-radius: 30px;
 }
 
-
-.guide-list li>a {
-  padding: 10px;
+.guide-list a {
+  display: block;
+  padding: 6px 10px;
 }
 
 .address,
 .copyright {
-  font-size: 12px;
-  margin-top: 20px;
+  display: block;
+  font-size: 1.3rem;
+  margin-top: 10px;
 }
