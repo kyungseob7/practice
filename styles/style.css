@@ -25,7 +25,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: url(/RWD/images/webcafe-logo.png) no-repeat 0 0,100% 100%;
+  background: url(/images/webcafe-logo.png) no-repeat 0 0,100% 100%;
 }
 /* 공통 멤버서비스 */
 .memberOnly {
@@ -109,6 +109,7 @@ input[type="search"] {
 
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width:769px) {
+ 
   /* 데스크탑 헤더 */
   .appHeader {
     max-width: var(--container-width);
@@ -117,6 +118,13 @@ input[type="search"] {
     background-color: gold;
   }
 
+  /* 데스크탑 로고 */
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
   /* 데스크탑 검색 폼 */
   .searchingForm__group {
     justify-content: flex-end;
@@ -126,7 +134,10 @@ input[type="search"] {
     width: 25rem;
   }
 }
-
+  /* 데스크탑 메인메뉴 제어버튼 */
+  .button--burger {
+    display: none;
+  }
 
 /* 고해상도 배경이미지 미디어쿼리 */
 @media (-webkit-min-device-pixel-ratio: 2),
